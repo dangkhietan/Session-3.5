@@ -80,3 +80,40 @@ LIMIT 10;
 | Automobiles & Components           | Mercedes-Benz GLE (GLE 500 4MATIC)                                                                                                 | 91000.00    | 
 | Automobiles & Components           | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000.00    | 
 | Automobiles & Components           | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00    | 
+
+# Topic 3: What are the industries with the highest contribution to carbon emissions?
+## Sắp xếp tên industry_group sản xuất có lượng khí phát thải theo thứ tự giảm dần:
+```SQL
+SELECT ig.industry_group,  
+		ROUND(AVG(carbon_footprint_pcf),2) AS 'Average_PCF'
+FROM product_emissions AS pe
+JOIN industry_groups AS ig on pe.industry_group_id =ig.id
+GROUP BY ig.industry_group
+ORDER BY Average_PCF DESC;
+```
+| industry_group                                   | Average_PCF | 
+| -----------------------------------------------: | ----------: | 
+| Electrical Equipment and Machinery               | 891050.73   | 
+| Automobiles & Components                         | 35373.48    | 
+| "Pharmaceuticals, Biotechnology & Life Sciences" | 24162.00    | 
+| Capital Goods                                    | 7391.77     | 
+| Materials                                        | 3208.86     | 
+| "Mining - Iron, Aluminum, Other Metals"          | 2727.00     | 
+| Energy                                           | 2154.80     | 
+| Chemicals                                        | 1949.03     | 
+| Media                                            | 1534.47     | 
+| Software & Services                              | 1368.94     | 
+
+## Truy xuất tên industry_group sản xuất có sản phẩm có lượng khí phát thải CAO nhất:
+```SQL
+SELECT ig.industry_group,  
+		ROUND(AVG(carbon_footprint_pcf),2) AS 'Average_PCF'
+FROM product_emissions AS pe
+JOIN industry_groups AS ig on pe.industry_group_id =ig.id
+GROUP BY ig.industry_group
+ORDER BY Average_PCF DESC
+LIMIT 1;
+```
+| industry_group                     | Average_PCF | 
+| ---------------------------------: | ----------: | 
+| Electrical Equipment and Machinery | 891050.73   | 
