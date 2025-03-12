@@ -1,6 +1,7 @@
 # Session-3.5
 ## Explore data
 Table 'Product_emissions'
+<iframe src="https://api.swisscoding.edu.vn/sqlexec/?database=carbon_emissions&query=SELECT+*%0D%0AFROM+product_emissions%0D%0ALIMIT+5%3B%0D%0A" width="100%" height="600" frameborder="0" scrolling="yes"></iframe>
 ```SQL
 SELECT *
 FROM product_emissions
