@@ -1,4 +1,4 @@
-# Session-3.5
+# Topic 1: Which products contribute the most to carbon emissions?
 ## Explore data
 ###Table 'Product_emissions'
 ```SQL
@@ -33,3 +33,25 @@ LIMIT 10;
 | Mercedes-Benz GLE (GLE 500 4MATIC)                                                                                                 | 91000.00    | 
 | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000.00    | 
 | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00    | 
+
+# Topic 2:  What are the industry groups of these products?
+## Top 10 nganh co product phat thai carbon cao:
+```SQL
+SELECT product_name,industry_group_id,  ROUND (AVG(carbon_footprint_pcf),2) AS 'Average_PCF'
+FROM product_emissions
+GROUP BY product_name
+ORDER BY Average_PCF DESC
+LIMIT 10;
+```
+| product_name                                                                                                                       | industry_group_id | Average_PCF | 
+| ---------------------------------------------------------------------------------------------------------------------------------: | ----------------: | ----------: | 
+| Wind Turbine G128 5 Megawats                                                                                                       | 13                | 3718044.00  | 
+| Wind Turbine G132 5 Megawats                                                                                                       | 13                | 3276187.00  | 
+| Wind Turbine G114 2 Megawats                                                                                                       | 13                | 1532608.00  | 
+| Wind Turbine G90 2 Megawats                                                                                                        | 13                | 1251625.00  | 
+| Land Cruiser Prado. FJ Cruiser. Dyna trucks. Toyoace.IMV def unit.                                                                 | 7                 | 191687.00   | 
+| Retaining wall structure with a main wall (sheet pile): 136 tonnes of steel sheet piles and 4 tonnes of tierods per 100 meter wall | 19                | 167000.00   | 
+| TCDE                                                                                                                               | 19                | 99075.00    | 
+| Mercedes-Benz GLE (GLE 500 4MATIC)                                                                                                 | 7                 | 91000.00    | 
+| Mercedes-Benz S-Class (S 500)                                                                                                      | 7                 | 85000.00    | 
+| Mercedes-Benz SL (SL 350)                                                                                                          | 7                 | 72000.00    | 
