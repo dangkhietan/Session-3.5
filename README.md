@@ -1,6 +1,6 @@
 # Session-3.5
 ## Explore data
-Table 'Product_emissions'
+###Table 'Product_emissions'
 ```SQL
 SELECT *
 FROM product_emissions
@@ -13,3 +13,11 @@ LIMIT 5;
 | 10222-1-2013 | 83         | 28         | 8                 | 2013 | Office Chair                                                    | 20.68     | 73                   | 80.63                      | 17.36                        | 2.01                         | 
 | 10261-1-2017 | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 1488                 | 30.65                      | 5.51                         | 63.84                        | 
 | 10261-2-2017 | 14         | 16         | 25                | 2017 | Multifunction Printers                                          | 110       | 1818                 | 25.08                      | 4.51                         | 70.41                        | 
+### So sanh AVG cac muc do Carbon_emissions theo san pham:
+```SQL
+SELECT product_name, ROUND (AVG(carbon_footprint_pcf),2) AS 'Average_PCF'
+FROM product_emissions
+GROUP BY product_name
+ORDER BY Average_PCF DESC
+LIMIT 20;
+```
