@@ -35,9 +35,11 @@ LIMIT 10;
 | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00    | 
 
 # Topic 2:  What are the industry groups of these products?
-## Top 10 nganh co product phat thai carbon cao:
+## Tìm top 10 industry_group_id sản xuất các product_name có lượng khí phát thải cao:
 ```SQL
-SELECT product_name,industry_group_id,  ROUND (AVG(carbon_footprint_pcf),2) AS 'Average_PCF'
+SELECT product_name,
+	    industry_group_id,
+	    ROUND (AVG(carbon_footprint_pcf),2) AS 'Average_PCF'
 FROM product_emissions
 GROUP BY product_name
 ORDER BY Average_PCF DESC
